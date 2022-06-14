@@ -51,10 +51,6 @@ h1.subpg {
     background: #16a085;
 }
 
-.h-vor {
-    background: #e74c3c;
-}
-
 .h-grd {
     background: #3498db;
 }
@@ -182,7 +178,15 @@ h1.subpg {
 }
 
 .dropdown-item {
-    height: 100px;
+    height: 150px;
+    line-height: 75px;
+    padding-top: 25px;
+}
+
+.dropitem-name {
+    height: 50px;
+    line-height: 50px;
+    font-size: 32px;
 }
 
 .dropdown-btn {

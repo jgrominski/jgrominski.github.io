@@ -279,7 +279,9 @@ function showSettings() {
 
 window.onclick = function (e) {
     if (!e.target.matches(".dropbtn") && !e.target.matches(".inc-dec")
-        && !e.target.matches(".inc-dec-btn") && !e.target.matches(".value")) {
+        && !e.target.matches(".inc-dec-btn") && !e.target.matches(".value")
+        && !e.target.matches(".dropitem-name") && !e.target.matches(".dropdown-content")
+        && !e.target.matches(".dropdown-btn") && !e.target.matches(".dropdown-item")) {
         let dropdowns = document.getElementsByClassName("dropdown-content");
         for (const dropdown of dropdowns) {
             if (dropdown.classList.contains('show')) {

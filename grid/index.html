@@ -21,7 +21,7 @@
 
     <meta charset="utf-8">
 
-    <title>Generate a city using a Voronoi diagram</title>
+    <title>Generate a Grid-Based City</title>
     <meta name="author" content="Kuba Gromiński">
     <meta name="description" content="Procedurally generated city using a Voronoi diagram.">
 
@@ -43,6 +43,7 @@
             </div>
             <div id="settings" class="dropdown-content">
                 <div class="dropdown-item">
+                    <div class="dropitem-name">Grid Width</div>
                     <div class="inc-dec">
                         <ion-icon onclick="modifyValue(0, -1)" class="inc-dec-btn" name="remove"></ion-icon>
                     </div>
@@ -52,6 +53,7 @@
                     </div>
                 </div>
                 <div class="dropdown-item">
+                    <div class="dropitem-name">Grid Height</div>
                     <div class="inc-dec">
                         <ion-icon onclick="modifyValue(1, -1)"  class="inc-dec-btn" name="remove"></ion-icon>
                     </div>
@@ -61,6 +63,7 @@
                     </div>
                 </div>
                 <div class="dropdown-item">
+                    <div class="dropitem-name">Chance of Park</div>
                     <div class="inc-dec">
                         <ion-icon onclick="modifyValue(2, -5)"  class="inc-dec-btn" name="remove"></ion-icon>
                     </div>
