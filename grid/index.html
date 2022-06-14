@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html lang="en-US">
+
+<head>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="../scripts/grid.js" defer></script>
+
+    <link href="../styles/style.css" rel="stylesheet">
+
+    <!-- This favicon was generated using the following graphics from Twitter Twemoji:
+        - Graphics Title: 1f3e1.svg
+        - Graphics Author: Copyright 2020 Twitter, Inc and other contributors (https://github.com/twitter/twemoji)
+        - Graphics Source: https://github.com/twitter/twemoji/blob/master/assets/svg/1f3e1.svg
+        - Graphics License: CC-BY 4.0 (https://creativecommons.org/licenses/by/4.0/) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+
+    <meta charset="utf-8">
+
+    <title>Generate a city using a Voronoi diagram</title>
+    <meta name="author" content="Kuba Gromiński">
+    <meta name="description" content="Procedurally generated city using a Voronoi diagram.">
+
+</head>
+
+<body onload="showSettingsValues()">
+    <div class="header h-grd">
+        <div class="home-page">
+            <a href="../index.html">
+                <ion-icon name="home"></ion-icon>
+            </a>
+        </div>
+        <h1 class="subpg">
+            Generate a Grid-Based City
+        </h1>
+        <div class="dropdown">
+            <div class="dropbtn-box">
+                <ion-icon onclick="showSettings()" class="dropbtn" name="settings-sharp"></ion-icon>
+            </div>
+            <div id="settings" class="dropdown-content">
+                <div class="dropdown-item">
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(0, -1)" class="inc-dec-btn" name="remove"></ion-icon>
+                    </div>
+                    <div id="grid-width" class="value"></div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(0, 1)"  class="inc-dec-btn" name="add"></ion-icon>
+                    </div>
+                </div>
+                <div class="dropdown-item">
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(1, -1)"  class="inc-dec-btn" name="remove"></ion-icon>
+                    </div>
+                    <div id="grid-height" class="value"></div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(1, 1)"  class="inc-dec-btn" name="add"></ion-icon>
+                    </div>
+                </div>
+                <div class="dropdown-item">
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(2, -5)"  class="inc-dec-btn" name="remove"></ion-icon>
+                    </div>
+                    <div id="park-chance" class="value"></div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(2, 5)"  class="inc-dec-btn" name="add"></ion-icon>
+                    </div>
+                </div>
+                <div class="dropdown-btn">
+                    <div onclick="generateGrid()" class="generate-btn">Generate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-sub">
+        <canvas class="main-canvas"></canvas>
+    </div>
+</body>
+
+</html>
