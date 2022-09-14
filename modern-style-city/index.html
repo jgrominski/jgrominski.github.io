@@ -1,0 +1,156 @@
+<!doctype html>
+
+<html lang="en-US">
+
+<head>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="../scripts/modern.js" defer></script>
+
+    <link href="../styles/style.css" rel="stylesheet">
+
+    <!-- This favicon was generated using the following graphics from Twitter Twemoji:
+        - Graphics Title: 1f3e1.svg
+        - Graphics Author: Copyright 2020 Twitter, Inc and other contributors (https://github.com/twitter/twemoji)
+        - Graphics Source: https://github.com/twitter/twemoji/blob/master/assets/svg/1f3e1.svg
+        - Graphics License: CC-BY 4.0 (https://creativecommons.org/licenses/by/4.0/) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+
+    <meta charset="utf-8">
+
+    <title>Generate a Modern Style City</title>
+    <meta name="author" content="Kuba Gromiński">
+    <meta name="description" content="Procedurally generated modern style city.">
+
+</head>
+
+<body onload="showSettingsValues()">
+    <div class="header h-mdr">
+        <div class="home-page">
+            <a href="../">
+                <ion-icon name="home"></ion-icon>
+            </a>
+        </div>
+        <h1 class="subpg">
+            Generate a Modern Style City
+        </h1>
+        <div class="dropdown">
+            <div class="dropbtn-box">
+                <ion-icon onclick="showSettings()" class="dropbtn" name="settings-sharp"></ion-icon>
+            </div>
+            <div id="settings" class="dropdown-content dropdown-content-mdr">
+                <div class="dropdown-item dropdown-item-mdr">
+                    <div class="dropitem-name">Neighbourhoods' Size</div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(0, 0.5)" class="inc-dec-btn" name="remove"></ion-icon>
+                    </div>
+                    <div id="cell-size" class="value value-mdr"></div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(0, 2)"  class="inc-dec-btn" name="add"></ion-icon>
+                    </div>
+                </div>
+                <div class="dropdown-item dropdown-item-mdr">
+                    <div class="dropitem-name">Plots' Size</div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(1, 0.5)" class="inc-dec-btn" name="remove"></ion-icon>
+                    </div>
+                    <div id="subcell-size" class="value value-mdr"></div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(1, 2)"  class="inc-dec-btn" name="add"></ion-icon>
+                    </div>
+                </div>
+                <div class="dropdown-item dropdown-item-mdr">
+                    <div class="dropitem-name">Type of Buildings</div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(2, -0.3)" class="inc-dec-btn" name="remove"></ion-icon>
+                    </div>
+                    <div id="outer-inner-prop" class="value value-mdr"></div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(2, 0.3)"  class="inc-dec-btn" name="add"></ion-icon>
+                    </div>
+                </div>
+                <div class="dropdown-item dropdown-item-mdr">
+                    <div class="dropitem-name">Include River</div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(3, -1)" class="inc-dec-btn" name="remove"></ion-icon>
+                    </div>
+                    <div id="include-river" class="value value-mdr"></div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(3, 1)"  class="inc-dec-btn" name="add"></ion-icon>
+                    </div>
+                </div>
+                <div class="dropdown-item dropdown-item-mdr">
+                    <div class="dropitem-name">Lakes</div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(4, -1)" class="inc-dec-btn" name="remove"></ion-icon>
+                    </div>
+                    <div id="chance-of-lake" class="value value-mdr"></div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(4, 1)"  class="inc-dec-btn" name="add"></ion-icon>
+                    </div>
+                </div>
+                <div class="dropdown-item dropdown-item-mdr">
+                    <div class="dropitem-name">Forests</div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(5, -1)" class="inc-dec-btn" name="remove"></ion-icon>
+                    </div>
+                    <div id="chance-of-forest" class="value value-mdr"></div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(5, 1)"  class="inc-dec-btn" name="add"></ion-icon>
+                    </div>
+                </div>
+                <div class="dropdown-item dropdown-item-mdr">
+                    <div class="dropitem-name">Palaces</div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(6, -1)" class="inc-dec-btn" name="remove"></ion-icon>
+                    </div>
+                    <div id="chance-of-palace" class="value value-mdr"></div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(6, 1)"  class="inc-dec-btn" name="add"></ion-icon>
+                    </div>
+                </div>
+                <div class="dropdown-item dropdown-item-mdr">
+                    <div class="dropitem-name">Goverment Buildings</div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(7, -1)" class="inc-dec-btn" name="remove"></ion-icon>
+                    </div>
+                    <div id="chance-of-gov" class="value value-mdr"></div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(7, 1)"  class="inc-dec-btn" name="add"></ion-icon>
+                    </div>
+                </div>
+                <div class="dropdown-item dropdown-item-mdr">
+                    <div class="dropitem-name">Churches</div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(8, -1)" class="inc-dec-btn" name="remove"></ion-icon>
+                    </div>
+                    <div id="chance-of-church" class="value value-mdr"></div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(8, 1)"  class="inc-dec-btn" name="add"></ion-icon>
+                    </div>
+                </div>
+                <div class="dropdown-item dropdown-item-mdr">
+                    <div class="dropitem-name">Parks</div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(9, -1)" class="inc-dec-btn" name="remove"></ion-icon>
+                    </div>
+                    <div id="chance-of-park" class="value value-mdr"></div>
+                    <div class="inc-dec">
+                        <ion-icon onclick="modifyValue(9, 1)"  class="inc-dec-btn" name="add"></ion-icon>
+                    </div>
+                </div>
+                <div class="dropdown-btn">
+                    <div onclick="generate()" class="generate-btn generate-btn-mdr">Generate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-sub">
+        <canvas class="main-canvas"></canvas>
+    </div>
+</body>
+
+</html>
